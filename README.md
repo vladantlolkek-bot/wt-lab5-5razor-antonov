@@ -4,7 +4,7 @@
 https://github.com/vladantlolkek-bot/wt-lab5-5razor-antonov
 
 ## Опубликованное приложение
-(URL появится после публикации на Render)
+https://wt-lab5-5razor-antonov.onrender.com
 
 ## Описание
 Веб-приложение на ASP.NET Core Razor Pages (.NET 8).
