@@ -1,0 +1,44 @@
+﻿@page
+@model wt_lab5_5razor_antonov.Pages.Cars.DetailsModel
+@{
+    ViewData["Title"] = "Информация об авто";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4 border-0">
+        <div class="card-body p-4">
+            <h2 class="fw-bold mb-3">@Model.Car.Brand @Model.Car.Model</h2>
+            <span class="badge bg-secondary mb-4">ID: @Model.Car.Id</span>
+
+            <dl class="row fs-5">
+                <dt class="col-sm-4 text-muted">Марка</dt>
+                <dd class="col-sm-8">@Model.Car.Brand</dd>
+
+                <dt class="col-sm-4 text-muted">Модель</dt>
+                <dd class="col-sm-8">@Model.Car.Model</dd>
+
+                <dt class="col-sm-4 text-muted">Год выпуска</dt>
+                <dd class="col-sm-8">@Model.Car.Year</dd>
+
+                <dt class="col-sm-4 text-muted">Цена за сутки</dt>
+                <dd class="col-sm-8 fw-bold text-primary">@Model.Car.PricePerDay ₽</dd>
+
+                <dt class="col-sm-4 text-muted">Статус</dt>
+                <dd class="col-sm-8">
+                    @if (Model.Car.IsAvailable)
+                    {
+                        <span class="badge bg-success">Доступен</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Занят</span>
+                    }
+                </dd>
+            </dl>
+
+            <hr />
+            <a asp-page="./Index" class="btn btn-secondary shadow-sm">← Назад к списку</a>
+            <a asp-page="./Edit" asp-route-id="@Model.Car.Id" class="btn btn-warning shadow-sm">Редактировать</a>
+        </div>
+    </div>
+</div>

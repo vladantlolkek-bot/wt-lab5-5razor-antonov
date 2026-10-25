@@ -1,0 +1,52 @@
+﻿@page
+@model wt_lab5_5razor_antonov.Pages.Cars.CreateModel
+@{
+    ViewData["Title"] = "Добавить автомобиль";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4 border-0">
+        <div class="card-body p-4">
+            <h2 class="mb-4 fw-bold">Редактирование: @Model.Car.Brand @Model.Car.Model</h2>
+
+            <form method="post">
+                <input type="hidden" asp-for="Car.Id"/>
+                <div class="mb-3">
+                    <label asp-for="Car.Brand" class="form-label fw-bold">Марка</label>
+                    <input asp-for="Car.Brand" class="form-control" placeholder="Например, Toyota" />
+                    <span asp-validation-for="Car.Brand" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Car.Model" class="form-label fw-bold">Модель</label>
+                    <input asp-for="Car.Model" class="form-control" placeholder="Например, Camry" />
+                    <span asp-validation-for="Car.Model" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Car.Year" class="form-label fw-bold">Год выпуска</label>
+                    <input asp-for="Car.Year" class="form-control" type="number" />
+                    <span asp-validation-for="Car.Year" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Car.PricePerDay" class="form-label fw-bold">Цена за сутки, ₽</label>
+                    <input asp-for="Car.PricePerDay" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Car.PricePerDay" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input asp-for="Car.IsAvailable" class="form-check-input" />
+                    <label asp-for="Car.IsAvailable" class="form-check-label">Доступен для проката</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary px-4">Сохранить</button>
+                <a asp-page="./Index" class="btn btn-secondary px-4">Назад</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
